@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'ursacorelab.gallery::lang.controller.gallery.label'
+
+# Model Form Field configuration
+form: $/ursacorelab/gallery/models/gallery/fields.yaml
+
+# Model Class name
+modelClass: UrsacoreLab\Gallery\Models\Gallery
+
+# Default redirect location
+defaultRedirect: UrsacoreLab/Gallery/GalleryController
+
+# Create page
+create:
+    title: ursacorelab.gallery::lang.controller.gallery.create
+    redirect: UrsacoreLab/Gallery/GalleryController/update/:id
+    redirectClose: UrsacoreLab/Gallery/GalleryController
+
+# Update page
+update:
+    title: ursacorelab.gallery::lang.controller.gallery.update
+    redirect: UrsacoreLab/Gallery/GalleryController
+    redirectClose: UrsacoreLab/Gallery/GalleryController
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

@@ -1,0 +1,4 @@
+'1.0.0':
+    - 'First version of UrsacoreLab.Gallery plugin'
+    - 1.0.0/create_gallery_categories_table.php
+    - 1.0.0/create_galleries_table.php

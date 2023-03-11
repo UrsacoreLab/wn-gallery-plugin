@@ -1,0 +1,38 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: 'ursacorelab.gallery::lang.models.name'
+        searchable: true
+        sortable: true
+
+    slug:
+        label: 'ursacorelab.gallery::lang.models.slug'
+        searchable: true
+        sortable: true
+
+    images_count:
+        label: 'ursacorelab.gallery::lang.models.images_count'
+
+    status:
+        label: 'ursacorelab.gallery::lang.models.status'
+        type: partial
+        path: ~/plugins/ursacorelab/staticvars/partials/_status.htm
+        searchable: true
+        width: '300px'
+
+    created_at:
+        label: 'ursacorelab.gallery::lang.models.created_at'
+        type: datetime
+        searchable: true
+        sortable: true
+        width: '200px'
+
+    updated_at:
+        label: 'ursacorelab.gallery::lang.models.updated_at'
+        type: datetime
+        searchable: true
+        sortable: true
+        width: '200px'

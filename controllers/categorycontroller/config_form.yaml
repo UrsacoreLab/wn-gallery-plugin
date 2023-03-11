@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'ursacorelab.gallery::lang.controller.category.label'
+
+# Model Form Field configuration
+form: $/ursacorelab/gallery/models/category/fields.yaml
+
+# Model Class name
+modelClass: UrsacoreLab\Gallery\Models\Category
+
+# Default redirect location
+defaultRedirect: UrsacoreLab/Gallery/CategoryController
+
+# Create page
+create:
+    title: ursacorelab.gallery::lang.controller.category.create
+    redirect: UrsacoreLab/Gallery/CategoryController/update/:id
+    redirectClose: UrsacoreLab/Gallery/CategoryController
+
+# Update page
+update:
+    title: ursacorelab.gallery::lang.controller.category.update
+    redirect: UrsacoreLab/Gallery/CategoryController
+    redirectClose: UrsacoreLab/Gallery/CategoryController
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

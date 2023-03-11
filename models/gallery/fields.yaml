@@ -1,0 +1,47 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: 'ursacorelab.gallery::lang.models.name'
+        span: storm
+        cssClass: col-sm-12 col-md-6
+
+    slug:
+        label: 'ursacorelab.gallery::lang.models.slug'
+        preset: name
+        span: storm
+        cssClass: col-sm-12 col-md-6
+
+    description:
+        label: 'ursacorelab.gallery::lang.models.description'
+        type: richeditor
+        size: huge
+        span: storm
+        cssClass: col-sm-12 col-md-12
+
+    images:
+        label: 'ursacorelab.gallery::lang.models.images'
+        type: fileupload
+        mode: image
+        span: storm
+        cssClass: col-sm-12 col-md-12
+
+secondaryTabs:
+    cssClass: 'ursacorelab_secondary_tabs'
+
+    fields:
+        status:
+            label: 'ursacorelab.gallery::lang.models.status'
+            type: dropdown
+            default: 110
+            span: storm
+            cssClass: col-sm-12 col-md-12
+
+        categories:
+            label: 'ursacorelab.gallery::lang.controller.category.label'
+            type: relation
+            quickselect: true
+            span: storm
+            cssClass: col-sm-12 col-md-12
