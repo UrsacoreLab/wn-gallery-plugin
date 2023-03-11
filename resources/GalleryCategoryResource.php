@@ -8,7 +8,7 @@ class GalleryCategoryResource extends JsonResource
 {
     public function toArray($request): array
     {
-        if ($request->get('gallery')) {
+        if ($request->has('gallery')) {
             return $this->withGalleries();
         }
 
