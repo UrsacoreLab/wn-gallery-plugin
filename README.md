@@ -40,7 +40,7 @@
 }
 ```
 
-### ***/api/gallery/category/{slug}?gallery=true***
+### ***/api/gallery/category/{slug}?gallery***
 
 Получение категории по URL с выводом привязанных галерей
 
@@ -111,6 +111,37 @@
             {
                 "extension": "png/jpg/*",
                 "path": "full path to image"
+            }
+        ]
+    },
+    "type": "success",
+    "show": true,
+    "translate_code": "statuses.synced",
+    "messages": null
+}
+```
+
+### ***/api/gallery/{slug}?categories***
+
+Получение конкретной галереи по URL с принадлежностью к категориям
+
+```json
+{
+    "data": {
+        "name": "Gallery name",
+        "slug": "slug",
+        "description": "",
+        "images": [
+            {
+                "extension": "png/jpg/*",
+                "path": "full path to image"
+            }
+        ],
+        "categories": [
+            {
+                "name": "Category name",
+                "slug": "category_slug",
+                "description": ""
             }
         ]
     },
