@@ -15,6 +15,7 @@ class GalleryResource extends JsonResource
             'description' => $this->description,
             'images'      => GalleryImageResource::collection($this->images()->get()),
             //'status'      => $this->status,
+            'categories'  => GalleryCategoryResource::collection($this->categories()->get()),
         ];
     }
 }
