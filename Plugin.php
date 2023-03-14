@@ -5,6 +5,7 @@ namespace UrsacoreLab\Gallery;
 use Backend\Facades\Backend;
 use Backend\Models\UserRole;
 use System\Classes\PluginBase;
+use UrsacoreLab\Gallery\Models\GallerySettings;
 
 class Plugin extends PluginBase
 {
@@ -61,6 +62,22 @@ class Plugin extends PluginBase
                         'order'       => 500,
                     ],
                 ],
+            ],
+        ];
+    }
+
+    public function registerSettings(): array
+    {
+        return [
+            'value' => [
+                'label'       => 'ursacorelab.gallery::lang.plugin.name',
+                'description' => 'ursacorelab.gallery::lang.plugin.description',
+                'category'    => 'UrsacoreLab',
+                'icon'        => 'icon-cogs',
+                'class'       => GallerySettings::class,
+                'order'       => 500,
+                'keywords'    => '',
+                'permissions' => ['ursacorelab.gallery.access'],
             ],
         ];
     }

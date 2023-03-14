@@ -46,4 +46,15 @@ return [
             'deleting' => 'Deleting',
         ],
     ],
+
+    'settings' => [
+        'category' => [
+            'additional_parameter_show_for_list'   => 'Returned additional parameter "show" for category list',
+            'additional_parameter_show_for_single' => 'Returned additional parameter "show" for single category',
+        ],
+        'gallery'  => [
+            'additional_parameter_show_for_list'   => 'Returned additional parameter "show" for gallery list',
+            'additional_parameter_show_for_single' => 'Returned additional parameter "show" for single gallery',
+        ],
+    ],
 ];

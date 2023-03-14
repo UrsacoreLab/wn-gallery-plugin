@@ -6,13 +6,16 @@ use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use UrsacoreLab\Gallery\Models\Category;
+use UrsacoreLab\Gallery\Models\GallerySettings;
 use UrsacoreLab\Gallery\Resources\GalleryCategoryResource;
 use UrsacoreLab\StaticVars\Classes\Additional;
 use UrsacoreLab\StaticVars\Classes\Statuses;
 
 class CategoryController extends Controller
 {
-    protected bool $debug = false;
+    protected bool $additional_parameter_show_for_category_list = false;
+
+    protected bool $additional_parameter_show_for_single_category = false;
 
     public $implement = [
         \Backend\Behaviors\FormController::class,
@@ -21,7 +24,8 @@ class CategoryController extends Controller
 
     public function __construct()
     {
-        $this->debug = config('app.debug');
+        $this->additional_parameter_show_for_category_list   = (boolean) GallerySettings::instance()->category_additional_parameter_show_for_list;
+        $this->additional_parameter_show_for_single_category = (boolean) GallerySettings::instance()->category_additional_parameter_show_for_single;
 
         parent::__construct();
 
@@ -42,9 +46,9 @@ class CategoryController extends Controller
             ->additional(
                 $data->isEmpty()
                     ?
-                    Additional::warning($this->debug)
+                    Additional::warning($this->additional_parameter_show_for_category_list)
                     :
-                    Additional::success($this->debug, null, 'statuses.synced')
+                    Additional::success($this->additional_parameter_show_for_category_list, null, 'statuses.synced')
             );
     }
 
@@ -57,9 +61,9 @@ class CategoryController extends Controller
 
         if (isset($data)) {
             return GalleryCategoryResource::make($data)
-                ->additional(Additional::success($this->debug, null, 'statuses.synced'));
+                ->additional(Additional::success($this->additional_parameter_show_for_single_category, null, 'statuses.synced'));
         }
 
-        return Additional::error($this->debug);
+        return Additional::error($this->additional_parameter_show_for_single_category);
     }
 }

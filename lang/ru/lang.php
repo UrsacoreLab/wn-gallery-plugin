@@ -46,4 +46,15 @@ return [
             'deleting' => 'Удаление',
         ],
     ],
+
+    'settings' => [
+        'category' => [
+            'additional_parameter_show_for_list'   => 'Возвращаемый дополнительный параметр "show" для списка категорий',
+            'additional_parameter_show_for_single' => 'Возвращаемый дополнительный параметр "show" для указанной категории',
+        ],
+        'gallery'  => [
+            'additional_parameter_show_for_list'   => 'Возвращаемый дополнительный параметр "show" для списка галерей',
+            'additional_parameter_show_for_single' => 'Возвращаемый дополнительный параметр "show" для указанной галереи',
+        ],
+    ],
 ];
