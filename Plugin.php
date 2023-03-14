@@ -105,9 +105,10 @@ class Plugin extends PluginBase
 
                 $form->addSecondaryTabFields([
                     'gallery' => [
-                        'label'       => 'sqwk.gallery::lang.form.label',
-                        'type'        => 'relation',
-                        'quickselect' => true,
+                        'label'    => 'ursacorelab.gallery::lang.controller.gallery.label',
+                        'type'     => 'relation',
+                        'span'     => 'storm',
+                        'cssClass' => 'col-sm-12 col-md-12',
                     ],
                 ]);
             });
