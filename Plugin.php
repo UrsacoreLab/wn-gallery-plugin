@@ -5,6 +5,8 @@ namespace UrsacoreLab\Gallery;
 use Backend\Facades\Backend;
 use Backend\Models\UserRole;
 use System\Classes\PluginBase;
+use System\Classes\PluginManager;
+use UrsacoreLab\Gallery\Models\Gallery;
 use UrsacoreLab\Gallery\Models\GallerySettings;
 
 class Plugin extends PluginBase
@@ -80,5 +82,35 @@ class Plugin extends PluginBase
                 'permissions' => ['ursacorelab.gallery.access'],
             ],
         ];
+    }
+
+    public function boot()
+    {
+        if (PluginManager::instance()->hasPlugin('UrsacoreLab.Blog')) {
+            $this->require[] = 'UrsacoreLab.Blog';
+
+            \UrsacoreLab\Blog\Models\Post::extend(function ($model) {
+                $model->belongsToMany['gallery'] = [
+                    Gallery::class,
+                    'table'    => 'ursacorelab_gallery_rel_blog_posts',
+                    'key'      => 'gallery_id',
+                    'otherKey' => 'post_id',
+                ];
+            });
+
+            \UrsacoreLab\Blog\Controllers\PostController::extendFormFields(function ($form, $model) {
+                if (! $model instanceof \UrsacoreLab\Blog\Models\Post) {
+                    return;
+                }
+
+                $form->addSecondaryTabFields([
+                    'gallery' => [
+                        'label'       => 'sqwk.gallery::lang.form.label',
+                        'type'        => 'relation',
+                        'quickselect' => true,
+                    ],
+                ]);
+            });
+        }
     }
 }

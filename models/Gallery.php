@@ -2,6 +2,7 @@
 
 namespace UrsacoreLab\Gallery\Models;
 
+use System\Classes\PluginManager;
 use UrsacoreLab\StaticVars\Classes\Statuses;
 use Winter\Storm\Database\Model;
 use Winter\Storm\Database\Traits\Validation;
@@ -73,5 +74,17 @@ class Gallery extends Model
     public function getImagesCountAttribute()
     {
         return $this->images()->count();
+    }
+
+    public function __construct(array $attributes = [])
+    {
+        if (PluginManager::instance()->hasPlugin('UrsacoreLab.Blog')) {
+            $this->belongsToMany['post'] = [
+                \UrsacoreLab\Blog\Models\Post::class,
+                'table' => 'ursacorelab_gallery_rel_blog_posts',
+            ];
+        }
+
+        parent::__construct($attributes);
     }
 }

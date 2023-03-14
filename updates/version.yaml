@@ -2,3 +2,6 @@
     - 'First version of UrsacoreLab.Gallery plugin'
     - 1.0.0/create_gallery_categories_table.php
     - 1.0.0/create_galleries_table.php
+'1.0.1':
+    - 'Create Gallery relation with UrsacoreLab.Blog'
+    - 1.0.1/create_gallery_rel_blog_posts_table.php
